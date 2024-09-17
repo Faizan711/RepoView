@@ -17,6 +17,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const { setRepoData } = useRepoData();
 
+  const router = useRouter();
+
   const fetchRepoData = async () => {
     if (!repoOwner || !repoName) {
       toast.error("Please enter both repo owner and name");
@@ -40,7 +42,7 @@ export default function Home() {
         return;
       }
       setRepoData(response.data);
-      window.open("/dashboard", "_blank");
+      router.push("/dashboard");
       setRepoOwner("");
       setRepoName("");
       setLoading(false);
@@ -87,6 +89,7 @@ export default function Home() {
               placeholder="Owner Username"
               type="text"
               onChange={(e) => setRepoOwner(e.target.value)}
+              value={repoOwner}
             />
           </div>
           <div>
@@ -94,6 +97,7 @@ export default function Home() {
               placeholder="Repo Name"
               type="text"
               onChange={(e) => setRepoName(e.target.value)}
+              value={repoName}
             />
           </div>
         </div>
