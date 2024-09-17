@@ -37,7 +37,9 @@ export default function Home() {
         response.data.errors &&
         response.data.errors[0]?.type === "NOT_FOUND"
       ) {
-        toast.error("Repository not found");
+        toast.error(
+          "Repository not found, Please Enter a valid public repository"
+        );
         setLoading(false);
         return;
       }
