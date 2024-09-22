@@ -43,7 +43,7 @@ export default function Home() {
         setLoading(false);
         return;
       }
-      setRepoData(response.data);
+      setRepoData(response);
       router.push("/dashboard");
       setRepoOwner("");
       setRepoName("");
